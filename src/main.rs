@@ -1,8 +1,8 @@
-use clap::{Arg, App};
 use std::fs;
-use std::fs::DirEntry;
+use std::fs::{DirEntry, ReadDir};
 use std::time::SystemTime;
 use serde_json::json;
+use clap::{Arg, App};
 
 fn main() {
     let matches = App::new("lj")
@@ -15,11 +15,19 @@ fn main() {
 
 
     let path = matches.value_of("path").unwrap_or("./");
-    let entries = fs::read_dir(path).unwrap();
-    for entry in entries {
-        let path = entry.unwrap();
-        println!("{}", entry_to_json(path));
+    let json = dir_to_json(fs::read_dir(path).unwrap());
+    for entry in json {
+        println!("{}", entry)
     }
+}
+
+fn dir_to_json(dir: ReadDir) -> Vec<String> {
+    let mut json: Vec<String> = Vec::new();
+    for entry in dir {
+        let path = entry.unwrap();
+        json.push(entry_to_json(path))
+    }
+    json
 }
 
 fn entry_to_json(entry: DirEntry) -> String {
