@@ -2,6 +2,16 @@
 
 Like `ls` but outputs JSON!
 
+## Installation
+
+`lj` is available on Homebrew for Intel Mac users.
+```bash
+brew tap alex9smith/lj
+brew install lj
+```
+For all other OSs and architectures, you'll need to build from source and copy the binary to 
+your favourite folder on your $PATH.
+
 ## Usage
 
 ```bash
