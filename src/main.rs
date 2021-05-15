@@ -39,9 +39,12 @@ fn main() {
     let depth = value_t!(matches.value_of("depth"), u32).unwrap_or(5);
 
     let json = dir_to_json(fs::read_dir(path).unwrap(), recursive, depth, 0);
+    println!("{{output: [");
     for entry in json {
-        println!("{}", entry)
+        print!("{}", entry);
+        println!(",");
     }
+    println!("]}}");
 }
 
 fn dir_to_json(dir: ReadDir, recursive: bool, max_depth: u32, current_depth: u32) -> Vec<Value> {
