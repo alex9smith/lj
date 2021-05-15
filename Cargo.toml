@@ -1,6 +1,6 @@
 [package]
 name = "lj"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Alex Smith <alex@alexsmith.dev>"]
 edition = "2018"
 description = "Like `ls`, but outputs JSON!"
