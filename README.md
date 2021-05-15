@@ -32,3 +32,5 @@ $ lj [path] [options]
 ## Development
 
 `lj` is a Rust binary. Install [Cargo]() for your OS, clone this repo and run `cargo build` from the root.
+
+Pull requests with reasonable changes are very welcome. If you have a feature request, please [open an issue](https://github.com/alex9smith/lj/issues) on Github.
